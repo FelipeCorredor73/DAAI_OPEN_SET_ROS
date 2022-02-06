@@ -25,7 +25,7 @@ def get_args():
     parser.add_argument("--n_classes_tot", type=int, default=65, help="Number of unknown classes")
 
     # dataset path
-    parser.add_argument("--path_dataset", default="/content/drive/MyDrive/DAAI21/ROS_AMLProject/data/", help="Path where the Office-Home dataset is located")
+    parser.add_argument("--path_dataset", default={'/.../OS_ROS_code/data/'}, help="Path where the Office-Home dataset is located")
 
     # data augmentation
     parser.add_argument("--min_scale", default=0.8, type=float, help="Minimum scale percent")
@@ -96,7 +96,7 @@ class Trainer:
     def do_training(self):
 
         print('+ Step 1 --------------------------------------------')
-        #step1(self.args,self.feature_extractor,self.rot_cls,self.obj_cls,self.source_loader,self.device)
+        step1(self.args,self.feature_extractor,self.rot_cls,self.obj_cls,self.source_loader,self.device)
 
         print('+ Target - Evaluation -- for known/unknown separation')
         rand = evaluation(self.args,self.feature_extractor,self.rot_cls,self.target_loader_eval,self.device)
